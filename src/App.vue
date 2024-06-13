@@ -6,9 +6,17 @@
           <ion-list id="inbox-list">
             <ion-list-header>Mes Recettes</ion-list-header>
             <!-- <ion-menu-toggle :auto-hide="true"> -->
-              <ion-item>
+              <ion-item href="/">
+                <ion-icon slot="start" :md="home"></ion-icon>
+                <ion-label>Accueil</ion-label>
+              </ion-item>
+              <ion-item href="/pageCinq">
                 <ion-icon slot="start" :md="heart"></ion-icon>
-                <ion-label>Page 1</ion-label>
+                <ion-label>Page 5</ion-label>
+              </ion-item>
+              <ion-item href="/chickenPage">
+                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-label>Chicken</ion-label>
               </ion-item>
               <ion-item>
                 <ion-icon slot="start" :md="calendar"></ion-icon>
@@ -36,6 +44,6 @@ import { IonApp,
          IonIcon,
          IonLabel } from '@ionic/vue';
 import {
-  heart, calendar
+  heart, calendar, home
 } from 'ionicons/icons';
 </script>
