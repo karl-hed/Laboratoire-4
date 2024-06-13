@@ -29,6 +29,8 @@
               <ion-label>{{ ingredient.name }}</ion-label>
             </ion-item>
           </ion-list>
+          <p class="meal-text">Instructions</p>
+          <p class="meal-instructions">{{ instructions }}</p>
           <p>Page d'accueil</p>
           <ion-button expand="block" color="medium" href="/pageCinq">
             Page Cinq</ion-button>
@@ -65,6 +67,7 @@ const img = ref("");
 const area = ref("");
 const categorie = ref("");
 const ingredients = reactive([{}]);
+const instructions = ref("");
 
 
   onMounted(async () => {
@@ -89,6 +92,7 @@ const ingredients = reactive([{}]);
             ingredients.push({ id: i, name: `${data.meals[0]['strIngredient' + i]}` })
           }
         }
+        instructions.value = data.meals[0].strInstructions;
         //console.log(ingredients);
         let str = "data.meals[0].strIngredient" + "2";
         console.log(ingredients);
@@ -106,6 +110,11 @@ const ingredients = reactive([{}]);
 .meal-text {
   font-size: 20px;
   font-weight: bold;
+}
+
+.meal-instructions {
+  margin: 10px;
+  text-align: justify;
 }
 
 #container {
