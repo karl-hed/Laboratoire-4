@@ -18,6 +18,10 @@
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Chicken</ion-label>
               </ion-item>
+              <ion-item href="/detail/456">
+                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-label>Detail</ion-label>
+              </ion-item>
               <ion-item>
                 <ion-icon slot="start" :md="calendar"></ion-icon>
                 <ion-label>Page 2</ion-label>

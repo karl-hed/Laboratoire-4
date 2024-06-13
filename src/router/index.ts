@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import PageCinq from '../views/PageCinq.vue';
 import ChickenPage from '../views/ChickenPage.vue';
+import Detail from '../views/Detail.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -23,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/pageCinq',
     name: 'PageCinq',
     component: PageCinq
+  },
+  {
+    path: '/detail/:id',
+    name: 'Detail',
+    component: Detail
   }
 ]
 
