@@ -1,0 +1,7 @@
+{
+  "name": "Laboratoire-4",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
