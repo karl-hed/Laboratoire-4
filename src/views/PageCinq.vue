@@ -1,13 +1,14 @@
 <template>
     <ion-page>
-      <ion-header>
+      <!-- <ion-header>
         <ion-toolbar color="primary">
           <ion-buttons slot="start">
             <ion-back-button default-href="/home"></ion-back-button>
           </ion-buttons>
           <ion-title>Page 5</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> -->
+      <MonHeader></MonHeader>
       <ion-content>
         <ion-item class="item">
           <ion-label>Titre album: </ion-label>
@@ -21,11 +22,14 @@
       </ion-footer>
     </ion-page>
 </template>
+
 <script setup lang="ts">
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonFooter,
   IonBackButton, IonButtons, IonLabel, IonItem } from '@ionic/vue';
   import { loadingController } from '@ionic/vue';
   import { ref, onMounted } from 'vue';
+  import MonHeader from "../components/MonHeader.vue"
+
   const titre = ref("");
 
   onMounted(async () => {
