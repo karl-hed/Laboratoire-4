@@ -26,7 +26,7 @@
           <p class="meal-text">Ingrédients</p>
           <ion-list>
             <ion-item v-for="ingredient in recette.ingredients" :key="ingredient.name">
-              <ion-label>{{ ingredient.name }}</ion-label>
+              <ion-label>{{ ingredient.mesure }} {{ ingredient.name }}</ion-label>
             </ion-item>
           </ion-list>
           <p class="meal-text">Instructions</p>
@@ -59,19 +59,11 @@ import { IonContent,
          IonItem,
          IonList,
          IonLabel } from '@ionic/vue';
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted } from 'vue';
 import { loadingController } from '@ionic/vue';
 import { Recette } from '../types';
 
-const meal = ref("");
-const img = ref("");
-const area = ref("");
-const categorie = ref("");
-const ingredients = reactive([{}]);
-const instructions = ref("");
-
 const recette = ref<Recette | null>(null);
-
 
   onMounted(async () => {
     const loading = await loadingController.create({ message: 'Attendre SVP...', });
@@ -81,33 +73,33 @@ const recette = ref<Recette | null>(null);
     fetch(url)
         .then(response => response.json())
         .then(data => {
-        console.log(data);
-        console.log(data['meals'][0]);
-        console.log(`data['meals'][0].idMeal = ${data['meals'][0].idMeal}`);
-        const ingredientsArray: { mesure: string, name: string }[] = [];
- 
-        //meal.value = data.meals[0].strMeal;
-        //recetteValue.nomRecette = data.meals[0].strMeal;
-        img.value = data.meals[0].strMealThumb;
-        area.value = data.meals[0].strArea;
-        categorie.value = data.meals[0].strCategory;
-        for (let i = 1; i <= 20; ++i) {
-          if (data.meals[0]['strIngredient' + i] !== "" && data.meals[0]['strIngredient' + i] !== null) {
-            ingredientsArray.push({ mesure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
+          console.log(data);
+          console.log(data['meals'][0]);
+          console.log(`data['meals'][0].idMeal = ${data['meals'][0].idMeal}`);
+          const ingredientsArray: { mesure: string, name: string }[] = [];
+  
+          //meal.value = data.meals[0].strMeal;
+          //recetteValue.nomRecette = data.meals[0].strMeal;
+          img.value = data.meals[0].strMealThumb;
+          area.value = data.meals[0].strArea;
+          categorie.value = data.meals[0].strCategory;
+          for (let i = 1; i <= 20; ++i) {
+            if (data.meals[0]['strIngredient' + i] !== "" && data.meals[0]['strIngredient' + i] !== null) {
+              ingredientsArray.push({ mesure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
+            }
           }
-        }
-        const recetteValue: Recette = {
-          nomRecette: data.meals[0].strMeal,
-          img: data.meals[0].strMealThumb,
-          area: data.meals[0].strArea,
-          categorie: data.meals[0].strCategory,
-          ingredients: ingredientsArray,
-          instructions: data.meals[0].strInstructions,
-        };
-        instructions.value = data.meals[0].strInstructions;
-        console.log(ingredients);
-        loading.dismiss();
-        recette.value = recetteValue;
+          const recetteValue: Recette = {
+            nomRecette: data.meals[0].strMeal,
+            img: data.meals[0].strMealThumb,
+            area: data.meals[0].strArea,
+            categorie: data.meals[0].strCategory,
+            ingredients: ingredientsArray,
+            instructions: data.meals[0].strInstructions,
+          };
+          instructions.value = data.meals[0].strInstructions;
+          console.log(ingredients);
+          loading.dismiss();
+          recette.value = recetteValue;
         });
   });
 
