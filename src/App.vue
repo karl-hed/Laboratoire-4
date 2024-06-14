@@ -6,6 +6,9 @@
           <ion-list id="inbox-list">
             <ion-list-header>Mes Recettes</ion-list-header>
             <!-- <ion-menu-toggle :auto-hide="true"> -->
+              <!-- <ion-item v-for="route in $router.options.routes.filter((v) => v.name)" :key="route.path" :href="route.path">
+                <ion-label>{{ route.name }}</ion-label>
+              </ion-item> -->
               <ion-item href="/">
                 <ion-icon slot="start" :md="home"></ion-icon>
                 <ion-label>Accueil</ion-label>
