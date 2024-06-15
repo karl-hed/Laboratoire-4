@@ -1,11 +1,12 @@
 <template>
+    <!-- Meme page que HomePage.vue -->
     <ion-page>
       <ion-header :translucent="true">
         <ion-toolbar>
           <ion-buttons slot="start">
             <ion-menu-button color="primary"></ion-menu-button>
           </ion-buttons>
-          <ion-title>Recette du moment</ion-title>
+          <ion-title>Recette</ion-title>
         </ion-toolbar>
       </ion-header>
       
@@ -63,13 +64,16 @@
   import { loadingController } from '@ionic/vue';
   import { Recette } from '../types';
   import MonHeader from '@/components/MonHeader.vue';
+
+  const props = defineProps<{ idMeal: string | string[] }>();
   
   const recette = ref<Recette | null>(null);
   
     onMounted(async () => {
       const loading = await loadingController.create({ message: 'Attendre SVP...', });
       await loading.present();
-      const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+      //const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+      const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.idMeal}`;
       
       fetch(url)
           .then(response => response.json())
@@ -91,6 +95,7 @@
               strCategory: data.meals[0].strCategory,
               strIngredients: ingredientsArray,
               strInstructions: data.meals[0].strInstructions,
+              idMeal: data.meals[0].idMeal
             };
             console.log(recetteValue.strIngredients);
             loading.dismiss();

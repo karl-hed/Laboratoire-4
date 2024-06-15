@@ -118,7 +118,7 @@
                     strInstructions: meal.strInstructions,
                     idMeal: meal.idMeal
                 };
-                console.log(meal);
+                //console.log(meal);
                 recettesArray.value.push(recetteValue);
                 //console.log(recettesArray.value[0].strMeal);
             })
