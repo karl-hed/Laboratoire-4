@@ -5,16 +5,29 @@
           <ion-buttons slot="start">
             <ion-menu-button color="primary"></ion-menu-button>
           </ion-buttons>
-          <ion-title>Recette du moment</ion-title>
+          <ion-title>{{ $route.name ? $route.name : "no name" }}</ion-title>
         </ion-toolbar>
       </ion-header>
       
+      
   
-      <ion-content :fullscreen="true" v-if="recettesArray.length > 0">
+      <ion-content :fullscreen="true">
+
+        <ion-cart>
+            <ion-list v-if="recettesArray.length > 0">
+                <ion-item v-for="recette in recettesArray" :key="recette.strMeal"> 
+                    <recette-item :recette="recette"></recette-item>
+                </ion-item>
+            </ion-list>
+           <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>    
+        </ion-cart>
 
         <ion-list v-for="recette in recettesArray" :key="recette.strMeal">
             <ion-item>
-                <ion-label>{{ recette.strMeal }}</ion-label>
+                <ion-label>
+                    <ion-img :src="recette.strMealThumb" class="img-list"></ion-img>
+                    {{ recette.strMeal }}
+                </ion-label>
             </ion-item>
         </ion-list>
           <!-- <div class="ion-text-center">
@@ -41,7 +54,7 @@
           </div> -->
   
       </ion-content>
-      <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>    
+      <!-- <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>     -->
     </ion-page>
   </template>
   
@@ -58,11 +71,13 @@
            IonItem,
            IonList,
            IonLabel,
-           IonSkeletonText } from '@ionic/vue';
+           IonSkeletonText,
+           IonCard } from '@ionic/vue';
   import { ref, onMounted } from 'vue';
   import { loadingController } from '@ionic/vue';
   import { Recette } from '../types';
   import MonHeader from '@/components/MonHeader.vue';
+  import RecetteItem from '@/components/RecetteItem.vue';
   
   const recette = ref<Recette | null>(null);
   const recettesArray = ref<Recette[]>([]);
@@ -136,6 +151,14 @@
   </script>
   
   <style scoped>
+
+  ion-label {
+    display: inline;
+  }
+
+  .img-list {
+    width: 2vh;
+  }
   
   .img-recette {
     width:fit-content;
