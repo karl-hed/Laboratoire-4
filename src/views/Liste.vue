@@ -13,14 +13,14 @@
   
       <ion-content :fullscreen="true">
 
-        <ion-cart>
+        <ion-card>
             <ion-list v-if="recettesArray.length > 0">
                 <ion-item v-for="recette in recettesArray" :key="recette.strMeal"> 
                     <recette-item :recette="recette"></recette-item>
                 </ion-item>
             </ion-list>
            <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>    
-        </ion-cart>
+        </ion-card>
 
         <ion-list v-for="recette in recettesArray" :key="recette.strMeal">
             <ion-item>
