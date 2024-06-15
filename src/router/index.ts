@@ -5,6 +5,7 @@ import PageCinq from '../views/PageCinq.vue';
 import ChickenPage from '../views/ChickenPage.vue';
 import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
+import PageDetails from '../views/PageDetails.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/seafoodPage',
     name: 'Seafood',
     component: Liste
+  },
+  {
+    path: '/details/:id',
+    name: 'Details',
+    component: PageDetails
   }
 ]
 

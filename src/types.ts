@@ -6,6 +6,7 @@ type Recette =  {
     strIngredients: { strMeasure: string, name: string }[],
     strInstructions: string
     /*key: string*/
+    idMeal: string
   }
 /*
   type Recette =  {

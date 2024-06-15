@@ -91,6 +91,7 @@ const recette = ref<Recette | null>(null);
             strCategory: data.meals[0].strCategory,
             strIngredients: ingredientsArray,
             strInstructions: data.meals[0].strInstructions,
+            idMeal: data.meals[0].idMeal
           };
           console.log(recetteValue.strIngredients);
           loading.dismiss();

@@ -2,8 +2,8 @@
     <!-- Conteneur principal pour un élément de livre -->
     <ion-item class="conteneur-livre">
       <!-- Élément de liste contenant les détails du livre et lié vers sa page de détails -->
-      <!-- <ion-item class="details-livre" :router-link="`/details/${props.livre.key.split('/')[2]}`"> -->
-      <ion-item class="details-livre">
+      <!-- <ion-item class="details-livre" :router-link="`/details/${props.livre.key.split('/')[2]}`"  :router-link="`/details/${props.recette}`"> -->
+      <ion-item class="details-livre" >
         <!-- Avatar à gauche montrant la couverture du livre -->
         <ion-avatar slot="start">
           <ion-img :src="props.recette.strMealThumb"></ion-img>
