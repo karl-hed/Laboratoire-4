@@ -5,21 +5,20 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>Home</ion-title>
+        <ion-title>Recette du moment</ion-title>
       </ion-toolbar>
     </ion-header>
+    
 
     <ion-content :fullscreen="true" v-if="recette">
-      <ion-header collapse="condense">
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Blank</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> -->
 
-
-      
         <div class="ion-text-center">
-          <ion-img :src="recette.img" style="width:fit-content;"></ion-img>
+          <ion-img :src="recette.img" class="img-recette"></ion-img>
           <p class="meal-text">{{ recette.nomRecette }}</p>
           <p>Origine: {{ recette.area }}</p>
           <p>Category: {{ recette.categorie }}</p>
@@ -40,9 +39,9 @@
           <ion-button expand="block" color="medium" href="/detail/123">
             Detail</ion-button>
         </div>
-      
 
     </ion-content>
+    <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>    
   </ion-page>
 </template>
 
@@ -58,10 +57,12 @@ import { IonContent,
          IonImg,
          IonItem,
          IonList,
-         IonLabel } from '@ionic/vue';
+         IonLabel,
+         IonSkeletonText } from '@ionic/vue';
 import { ref, onMounted } from 'vue';
 import { loadingController } from '@ionic/vue';
 import { Recette } from '../types';
+import MonHeader from '@/components/MonHeader.vue';
 
 const recette = ref<Recette | null>(null);
 
@@ -100,6 +101,11 @@ const recette = ref<Recette | null>(null);
 </script>
 
 <style scoped>
+
+.img-recette {
+  width:fit-content;
+  padding: 10px;
+}
 
 .meal-text {
   font-size: 20px;
