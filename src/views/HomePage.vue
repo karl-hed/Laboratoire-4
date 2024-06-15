@@ -18,18 +18,18 @@
       </ion-header> -->
 
         <div class="ion-text-center">
-          <ion-img :src="recette.img" class="img-recette"></ion-img>
-          <p class="meal-text">{{ recette.nomRecette }}</p>
-          <p>Origine: {{ recette.area }}</p>
-          <p>Category: {{ recette.categorie }}</p>
+          <ion-img :src="recette.strMealThumb" class="img-recette"></ion-img>
+          <p class="meal-text">{{ recette.strMeal }}</p>
+          <p>Origine: {{ recette.strArea }}</p>
+          <p>Category: {{ recette.strCategory }}</p>
           <p class="meal-text">Ingrédients</p>
           <ion-list>
-            <ion-item v-for="ingredient in recette.ingredients" :key="ingredient.name">
-              <ion-label>{{ ingredient.mesure }} {{ ingredient.name }}</ion-label>
+            <ion-item v-for="ingredient in recette.strIngredients" :key="ingredient.name">
+              <ion-label>{{ ingredient.strMeasure }} {{ ingredient.name }}</ion-label>
             </ion-item>
           </ion-list>
           <p class="meal-text">Instructions</p>
-          <p class="meal-instructions">{{ recette.instructions }}</p>
+          <p class="meal-instructions">{{ recette.strInstructions }}</p>
           <p>Page d'accueil</p>
           <ion-button expand="block" color="medium" href="/pageCinq">
             Page Cinq</ion-button>
@@ -77,22 +77,22 @@ const recette = ref<Recette | null>(null);
           console.log(data);
           console.log(data['meals'][0]);
           console.log(`data['meals'][0].idMeal = ${data['meals'][0].idMeal}`);
-          const ingredientsArray: { mesure: string, name: string }[] = [];
+          const ingredientsArray: { strMeasure: string, name: string }[] = [];
           
           for (let i = 1; i <= 20; ++i) {
             if (data.meals[0]['strIngredient' + i] !== "" && data.meals[0]['strIngredient' + i] !== null) {
-              ingredientsArray.push({ mesure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
+              ingredientsArray.push({ strMeasure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
             }
           }
           const recetteValue: Recette = {
-            nomRecette: data.meals[0].strMeal,
-            img: data.meals[0].strMealThumb,
-            area: data.meals[0].strArea,
-            categorie: data.meals[0].strCategory,
-            ingredients: ingredientsArray,
-            instructions: data.meals[0].strInstructions,
+            strMeal: data.meals[0].strMeal,
+            strMealThumb: data.meals[0].strMealThumb,
+            strArea: data.meals[0].strArea,
+            strCategory: data.meals[0].strCategory,
+            strIngredients: ingredientsArray,
+            strInstructions: data.meals[0].strInstructions,
           };
-          console.log(recetteValue.ingredients);
+          console.log(recetteValue.strIngredients);
           loading.dismiss();
           recette.value = recetteValue;
         });
@@ -104,7 +104,10 @@ const recette = ref<Recette | null>(null);
 
 .img-recette {
   width:fit-content;
+  /* width: 20%; */
   padding: 10px;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .meal-text {

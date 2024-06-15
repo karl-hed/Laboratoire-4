@@ -21,6 +21,10 @@
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Chicken</ion-label>
               </ion-item>
+              <ion-item href="/seafoodPage">
+                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-label>Seafood</ion-label>
+              </ion-item>
               <ion-item href="/detail/456">
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Detail</ion-label>
