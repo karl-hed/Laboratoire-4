@@ -19,7 +19,7 @@
 
       
         <div class="ion-text-center">
-          <ion-img :src="recette.img"></ion-img>
+          <ion-img :src="recette.img" style="width:fit-content;"></ion-img>
           <p class="meal-text">{{ recette.nomRecette }}</p>
           <p>Origine: {{ recette.area }}</p>
           <p>Category: {{ recette.categorie }}</p>
@@ -77,12 +77,7 @@ const recette = ref<Recette | null>(null);
           console.log(data['meals'][0]);
           console.log(`data['meals'][0].idMeal = ${data['meals'][0].idMeal}`);
           const ingredientsArray: { mesure: string, name: string }[] = [];
-  
-          //meal.value = data.meals[0].strMeal;
-          //recetteValue.nomRecette = data.meals[0].strMeal;
-          img.value = data.meals[0].strMealThumb;
-          area.value = data.meals[0].strArea;
-          categorie.value = data.meals[0].strCategory;
+          
           for (let i = 1; i <= 20; ++i) {
             if (data.meals[0]['strIngredient' + i] !== "" && data.meals[0]['strIngredient' + i] !== null) {
               ingredientsArray.push({ mesure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
@@ -96,8 +91,7 @@ const recette = ref<Recette | null>(null);
             ingredients: ingredientsArray,
             instructions: data.meals[0].strInstructions,
           };
-          instructions.value = data.meals[0].strInstructions;
-          console.log(ingredients);
+          console.log(recetteValue.ingredients);
           loading.dismiss();
           recette.value = recetteValue;
         });
