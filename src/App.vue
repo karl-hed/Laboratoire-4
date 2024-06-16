@@ -18,11 +18,11 @@
                 <ion-label>Page 5</ion-label>
               </ion-item>
               <ion-item href="/chickenPage">
-                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-icon slot="start" src="assets/images/chicken-2-svgrepo-com.svg"></ion-icon>
                 <ion-label>Chicken</ion-label>
               </ion-item>
               <ion-item href="/seafoodPage">
-                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-icon slot="start" :md="fishOutline"></ion-icon>
                 <ion-label>Seafood</ion-label>
               </ion-item>
               <ion-item href="/detail/456">
@@ -55,6 +55,10 @@ import { IonApp,
          IonIcon,
          IonLabel } from '@ionic/vue';
 import {
-  heart, calendar, home
+  heart, calendar, home, fishOutline, fishSharp
 } from 'ionicons/icons';
+
+//import { chickenIcon } from '../assets/images/chicken.png';
+//import chickenIcon from "../assets/images/*.png";
+
 </script>
