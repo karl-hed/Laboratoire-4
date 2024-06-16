@@ -7,6 +7,7 @@ import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
 import PageDetails from '../views/PageDetails.vue';
 import ComposantListe from '@/components/ComposantListe.vue';
+import DessertList from '@/views/DessertList.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -48,6 +49,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/chickenList',
     name: 'Chicken',
     component: ChickenList
+  },
+  {
+    path: '/dessertList',
+    name: 'Dessert',
+    component: DessertList
   }
 ]
 

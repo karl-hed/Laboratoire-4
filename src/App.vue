@@ -25,6 +25,10 @@
                 <ion-icon slot="start" :md="fishOutline"></ion-icon>
                 <ion-label>Seafood</ion-label>
               </ion-item>
+              <ion-item href="/dessertList">
+                <ion-icon slot="start" src="assets/images/cupcake-svgrepo-com.svg"></ion-icon>
+                <ion-label>Dessert</ion-label>
+              </ion-item>
               <ion-item href="/detail/456">
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Detail</ion-label>
