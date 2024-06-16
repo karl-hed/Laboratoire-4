@@ -43,14 +43,21 @@
               </ion-item>
               <ion-item href="/detail/456">
                 <ion-icon slot="start" :md="heart"></ion-icon>
-                <ion-input placeholder="Rechercher" v-model="recherche"></ion-input>
+                <!-- <ion-input placeholder="Rechercher" v-model="recherche"></ion-input> -->
                 <!-- <ion-label>Detail</ion-label> -->
               </ion-item>
               <ion-item href="/recherche">
                 <ion-icon slot="start" :md="heart"></ion-icon>
-                <ion-input placeholder="Rechercher" v-model="recherche" :elementRecherche="recherche"></ion-input>
-                <element-recherche :router-link="`/elementRecherche/${recherche}`"></element-recherche>
+                <!-- <ion-input placeholder="Rechercher" v-model="recherche" :elementRecherche="recherche"></ion-input> -->
+                <!-- <element-recherche :router-link="`/elementRecherche/${recherche}`"></element-recherche> -->
                 <!-- <ion-label>Detail</ion-label> -->
+
+              </ion-item>
+              <ion-item>
+                <ion-searchbar
+                  placeholder="Rechercher"
+                  @ionInput="rechercheFonction($event)">
+                </ion-searchbar>
               </ion-item>
             <!-- </ion-menu-toggle> -->
           </ion-list>
@@ -73,7 +80,8 @@ import { IonApp,
          IonSplitPane,
          IonIcon,
          IonLabel,
-         IonInput } from '@ionic/vue';
+         IonInput,
+         IonSearchbar } from '@ionic/vue';
 import {
   heart, calendar, home, fishOutline, fishSharp
 } from 'ionicons/icons';
@@ -81,6 +89,12 @@ import ComposantListe from '@/components/ComposantListe.vue';
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import ElementRecherche from './components/ElementRecherche.vue';
+import { defineComponent } from 'vue';
+
+const rechercheFonction = (event: Event) => {
+  console.log(event.target);
+  console.log(event.target.value);
+}
 
 const recherche = ref('');
 console.log(recherche);

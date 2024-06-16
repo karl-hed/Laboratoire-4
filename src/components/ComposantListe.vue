@@ -47,6 +47,10 @@
   import MonHeader from '@/components/MonHeader.vue';
   import RecetteItem from '@/components/RecetteItem.vue';
   import router from '@/router';
+  import { useRoute } from 'vue-router'
+
+  const route = useRoute()
+  console.log(route.query);
   
   const recette = ref<Recette | null>(null);
   const recettesArray = ref<Recette[]>([]);
