@@ -30,6 +30,11 @@
                 <ion-label>Detail</ion-label>
               </ion-item>
               <ion-item>
+                <ion-icon slot="start" :md="heart"></ion-icon>
+                <ion-label>Detail</ion-label>
+                <composant-liste categorie="Chicken"></composant-liste>
+              </ion-item>
+              <ion-item>
                 <ion-icon slot="start" :md="calendar"></ion-icon>
                 <ion-label>Page 2</ion-label>
               </ion-item>
@@ -57,6 +62,7 @@ import { IonApp,
 import {
   heart, calendar, home, fishOutline, fishSharp
 } from 'ionicons/icons';
+import ComposantListe from '@/components/ComposantListe.vue';
 
 //import { chickenIcon } from '../assets/images/chicken.png';
 //import chickenIcon from "../assets/images/*.png";

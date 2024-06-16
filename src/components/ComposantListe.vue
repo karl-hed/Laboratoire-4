@@ -1,4 +1,5 @@
 <template>
+    <!-- copie de Liste.vue mais pour savoir si on peut passer un props de App.vue a ce fichier avec le string de recherche ('seafood', 'chicken', ...) -->
     <ion-page>
       <ion-header :translucent="true">
         <ion-toolbar>
@@ -21,40 +22,7 @@
             </ion-list>
            <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>    
         </ion-card>
-
-        <ion-list v-for="recette in recettesArray" :key="recette.strMeal">
-            <ion-item>
-                <ion-label>
-                    <ion-img :src="recette.strMealThumb" class="img-list"></ion-img>
-                    {{ recette.strMeal }}
-                </ion-label>
-            </ion-item>
-        </ion-list>
-          <!-- <div class="ion-text-center">
-            <ion-img :src="recette.strMealThumb" class="img-recette"></ion-img>
-            <p class="meal-text">{{ recette.strMeal }}</p>
-            <p>Origine: {{ recette.strArea }}</p>
-            <p>Category: {{ recette.strCategory }}</p>
-            <p class="meal-text">Ingrédients</p>
-            <ion-list>
-              <ion-item v-for="ingredient in recette.strIngredients" :key="ingredient.name">
-                <ion-label>{{ ingredient.strMeasure }} {{ ingredient.name }}</ion-label>
-              </ion-item>
-            </ion-list>
-            <p class="meal-text">Instructions</p>
-            <p class="meal-instructions">{{ recette.strInstructions }}</p>
-            <p>Page d'accueil</p>
-            <ion-button expand="block" color="medium" href="/pageCinq">
-              Page Cinq</ion-button>
-          </div>
-          <div class="ion-text-center">
-            <p>Detail</p>
-            <ion-button expand="block" color="medium" href="/detail/123">
-              Detail</ion-button>
-          </div> -->
-  
       </ion-content>
-      <!-- <ion-skeleton-text v-else class="skeleton" animated></ion-skeleton-text>     -->
     </ion-page>
   </template>
   
@@ -81,12 +49,14 @@
   
   const recette = ref<Recette | null>(null);
   const recettesArray = ref<Recette[]>([]);
+  const props = defineProps<{ categorie: string | string[] }>();
 
     onMounted(async () => {
       const loading = await loadingController.create({ message: 'Attendre SVP...', });
       await loading.present();
-      const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
-      //const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${route.params.id}`;
+      console.log(props.categorie);
+      //const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${props.categorie}`;
       
       const ingredientsStringList = ["strIngredient1", "strIngredient2", "strIngredient3", "strIngredient4", "strIngredient5", "strIngredient6", "strIngredient7", ]
       
