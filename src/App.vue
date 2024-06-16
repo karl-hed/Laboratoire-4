@@ -17,7 +17,7 @@
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Page 5</ion-label>
               </ion-item>
-              <ion-item href="/chickenPage">
+              <ion-item href="/chickenList">
                 <ion-icon slot="start" src="assets/images/chicken-2-svgrepo-com.svg"></ion-icon>
                 <ion-label>Chicken</ion-label>
               </ion-item>

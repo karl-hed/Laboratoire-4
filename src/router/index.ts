@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import PageCinq from '../views/PageCinq.vue';
-import ChickenPage from '../views/ChickenPage.vue';
+import ChickenList from '../views/ChickenList.vue';
 import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
 import PageDetails from '../views/PageDetails.vue';
@@ -17,11 +17,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     component: HomePage
-  },
-  {
-    path: '/chickenPage',
-    name: 'ChickenPage',
-    component: ChickenPage
   },
   {
     path: '/pageCinq',
@@ -48,6 +43,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/composant/:id',
     name: 'ComposantListe',
     component: ComposantListe
+  },
+  {
+    path: '/chickenList',
+    name: 'Chicken',
+    component: ChickenList
   }
 ]
 
