@@ -32,7 +32,10 @@
               <ion-item>
                 <ion-icon slot="start" :md="heart"></ion-icon>
                 <ion-label>Detail</ion-label>
-                <composant-liste categorie="Chicken"></composant-liste>
+                <!-- <composant-liste categorie="Chicken"></composant-liste> -->
+                <!-- <composant-liste router-link="/composant/Chicken"></composant-liste> -->
+                <router-link :to="'/composant/chicken'">Edit</router-link>
+                <!-- <composant-liste ></composant-liste> -->
               </ion-item>
               <ion-item>
                 <ion-icon slot="start" :md="calendar"></ion-icon>
@@ -63,6 +66,7 @@ import {
   heart, calendar, home, fishOutline, fishSharp
 } from 'ionicons/icons';
 import ComposantListe from '@/components/ComposantListe.vue';
+import { RouterLink } from 'vue-router';
 
 //import { chickenIcon } from '../assets/images/chicken.png';
 //import chickenIcon from "../assets/images/*.png";

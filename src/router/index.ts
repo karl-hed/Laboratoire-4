@@ -6,6 +6,7 @@ import ChickenPage from '../views/ChickenPage.vue';
 import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
 import PageDetails from '../views/PageDetails.vue';
+import ComposantListe from '@/components/ComposantListe.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -40,7 +41,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/details/:id',
     name: 'Details',
-    component: PageDetails
+    component: PageDetails,
+    //props: true
+  },
+  {
+    path: '/composant/:id',
+    name: 'ComposantListe',
+    component: ComposantListe
   }
 ]
 

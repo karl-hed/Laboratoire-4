@@ -46,17 +46,24 @@
   import { Recette } from '../types';
   import MonHeader from '@/components/MonHeader.vue';
   import RecetteItem from '@/components/RecetteItem.vue';
+  import router from '@/router';
   
   const recette = ref<Recette | null>(null);
   const recettesArray = ref<Recette[]>([]);
-  const props = defineProps<{ categorie: string | string[] }>();
+  console.log(router);
+  //const props = defineProps<{ categorie: string | string[] }>();
+  const props = defineProps<{ id: string | string[] }>();
 
     onMounted(async () => {
-      const loading = await loadingController.create({ message: 'Attendre SVP...', });
-      await loading.present();
-      console.log(props.categorie);
-      //const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
-      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${props.categorie}`;
+      // console.log(router);
+      //const loading = await loadingController.create({ message: 'Attendre SVP...', });
+      //await loading.present();
+      //console.log(props.categorie);
+      //console.log(props.id);
+      console.log(props);
+      /*
+      const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+      //const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${props.categorie}`;
       
       const ingredientsStringList = ["strIngredient1", "strIngredient2", "strIngredient3", "strIngredient4", "strIngredient5", "strIngredient6", "strIngredient7", ]
       
@@ -115,10 +122,12 @@
               instructions: data.meals[0].strInstructions,
             };
             console.log(recetteValue.ingredients);
-            */
+            
             loading.dismiss();
             //recette.value = recetteValue;
+            
           });
+          */
     });
   
   </script>
