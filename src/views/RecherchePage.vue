@@ -1,5 +1,4 @@
 <template>
-    <!-- copie de Liste.vue mais pour savoir si on peut passer un props de App.vue a ce fichier avec le string de recherche ('seafood', 'chicken', ...) -->
     <ion-page>
       <ion-header :translucent="true">
         <ion-toolbar>
@@ -10,10 +9,7 @@
         </ion-toolbar>
       </ion-header>
       
-      
-  
       <ion-content :fullscreen="true">
-
         <ion-card>
             <ion-list v-if="recettesArray.length > 0">
                 <ion-item v-for="recette in recettesArray" :key="recette.strMeal"> 
@@ -46,28 +42,17 @@
   import { Recette } from '../types';
   import MonHeader from '@/components/MonHeader.vue';
   import RecetteItem from '@/components/RecetteItem.vue';
-  import router from '@/router';
-  import { useRoute } from 'vue-router'
-
-  const route = useRoute()
-  console.log(route.query);
   
   const recette = ref<Recette | null>(null);
   const recettesArray = ref<Recette[]>([]);
-  console.log(router);
-  //const props = defineProps<{ categorie: string | string[] }>();
-  const props = defineProps<{ id: string | string[] }>();
-
+  const props = defineProps<{ elementRecherche: string | string[] }>();
+  console.log(props.elementRecherche);
+/*
     onMounted(async () => {
-      // console.log(router);
-      //const loading = await loadingController.create({ message: 'Attendre SVP...', });
-      //await loading.present();
-      //console.log(props.categorie);
-      //console.log(props.id);
-      console.log(props);
-      /*
-      const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
-      //const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${props.categorie}`;
+      const loading = await loadingController.create({ message: 'Attendre SVP...', });
+      await loading.present();
+      const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken';
+      //const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${route.params.id}`;
       
       const ingredientsStringList = ["strIngredient1", "strIngredient2", "strIngredient3", "strIngredient4", "strIngredient5", "strIngredient6", "strIngredient7", ]
       
@@ -80,12 +65,12 @@
             //console.log(`data['meals'][0].length = ${data['meals'][0].value.length}`);
             
             
-
+  
             data['meals'].forEach((meal: Recette) => {
                 //console.log(meal);
                 //console.log(meal.strMeal);
                 const ingredientsArray: { strMeasure: string, name: string }[] = [];
-
+  
                 for (let i = 1; i <= 20; ++i) {
                     if (meal['strIngredient' + i] !== "" && meal['strIngredient' + i] !== null) {
                         ingredientsArray.push({ strMeasure: meal['strMeasure' + i], name: `${meal['strIngredient' + i]}` })
@@ -126,22 +111,21 @@
               instructions: data.meals[0].strInstructions,
             };
             console.log(recetteValue.ingredients);
-            
+    
             loading.dismiss();
             //recette.value = recetteValue;
-            
           });
-          */
     });
+            */
   
   </script>
   
   <style scoped>
-
+  
   ion-label {
     display: inline;
   }
-
+  
   .img-list {
     width: 2vh;
   }
