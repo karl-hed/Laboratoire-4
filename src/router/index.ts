@@ -65,7 +65,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/elementRecherche/:id',
     name: 'ElementRecherche',
-    component: ElementRecherche
+    component: ElementRecherche,
+    props: true
   }
 ]
 

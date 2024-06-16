@@ -56,7 +56,7 @@
               <ion-item>
                 <ion-searchbar
                   placeholder="Rechercher"
-                  @ionInput="rechercheFonction($event)">
+                  @search="rechercheFonction($event)">
                 </ion-searchbar>
               </ion-item>
             <!-- </ion-menu-toggle> -->
@@ -90,10 +90,18 @@ import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import ElementRecherche from './components/ElementRecherche.vue';
 import { defineComponent } from 'vue';
+import { useRoute } from 'vue-router'
+import { useRouter } from "vue-router";
+
+//const route = useRoute();
+const router = useRouter();
 
 const rechercheFonction = (event: Event) => {
   console.log(event.target);
   console.log(event.target.value);
+  //route(/recherche-page);
+  router.push(`/elementRecherche/${event.target.value}`);
+  
 }
 
 const recherche = ref('');
