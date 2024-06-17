@@ -5,7 +5,6 @@ import ChickenList from '../views/ChickenList.vue';
 import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
 import PageDetails from '../views/PageDetails.vue';
-import ComposantListe from '@/components/ComposantListe.vue';
 import DessertList from '@/views/DessertList.vue';
 import ElementRecherche from '@/components/ElementRecherche.vue';
 
@@ -34,11 +33,6 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Details',
     component: PageDetails,
     //props: true
-  },
-  {
-    path: '/composant/:id',
-    name: 'ComposantListe',
-    component: ComposantListe
   },
   {
     path: '/chickenList',
