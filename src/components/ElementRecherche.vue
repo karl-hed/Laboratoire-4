@@ -53,7 +53,7 @@
         // console.log(data.categories[0].strCategory);
         data.categories.forEach((category: string) => {
             categoriesArray.push(category.strCategory);
-            console.log(category.strCategory);
+            // console.log(category.strCategory);
         })
     });
 
