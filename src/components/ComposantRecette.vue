@@ -12,11 +12,6 @@
       
   
       <ion-content :fullscreen="true" v-if="recette">
-        <!-- <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-          </ion-toolbar>
-        </ion-header> -->
   
           <div class="ion-text-center">
             <ion-img :src="recette.strMealThumb" class="img-recette"></ion-img>

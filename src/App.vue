@@ -83,7 +83,7 @@ import { IonApp,
          IonInput,
          IonSearchbar } from '@ionic/vue';
 import {
-  heart, calendar, home, fishOutline, fishSharp
+  heart, home, fishOutline, fishSharp
 } from 'ionicons/icons';
 import ComposantListe from '@/components/ComposantListe.vue';
 import { RouterLink } from 'vue-router';
@@ -99,7 +99,6 @@ const router = useRouter();
 const rechercheFonction = (event: Event) => {
   console.log(event.target);
   console.log(event.target.value);
-  //route(/recherche-page);
   router.push(`/elementRecherche/${event.target.value}`);
   
 }
@@ -107,7 +106,5 @@ const rechercheFonction = (event: Event) => {
 const recherche = ref('');
 console.log(recherche);
 
-//import { chickenIcon } from '../assets/images/chicken.png';
-//import chickenIcon from "../assets/images/*.png";
 
 </script>
