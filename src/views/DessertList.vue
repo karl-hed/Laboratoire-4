@@ -50,9 +50,7 @@
       const loading = await loadingController.create({ message: 'Attendre SVP...', });
       await loading.present();
       const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert';
-      //const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${route.params.id}`;
       
-      const ingredientsStringList = ["strIngredient1", "strIngredient2", "strIngredient3", "strIngredient4", "strIngredient5", "strIngredient6", "strIngredient7", ]
       
       fetch(url)
           .then(response => response.json())
