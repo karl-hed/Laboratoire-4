@@ -26,9 +26,9 @@
   const props = defineProps<{ recette: Recette }>();
   </script>
   
-  <!-- Styles spécifiques au composant LivreItem -->
+  <!-- Styles spécifiques au composant RecetteItem -->
   <style scoped>
-  /* Style pour le conteneur principal du livre */
+  /* Style pour le conteneur principal de la recette */
   .conteneur-recette {
     display: flex;
     flex: 1;
