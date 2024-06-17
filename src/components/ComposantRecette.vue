@@ -12,11 +12,6 @@
       
   
       <ion-content :fullscreen="true" v-if="recette">
-        <!-- <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-          </ion-toolbar>
-        </ion-header> -->
   
           <div class="ion-text-center">
             <ion-img :src="recette.strMealThumb" class="img-recette"></ion-img>
@@ -31,14 +26,7 @@
             </ion-list>
             <p class="meal-text">Instructions</p>
             <p class="meal-instructions">{{ recette.strInstructions }}</p>
-            <p>Page d'accueil</p>
-            <ion-button expand="block" color="medium" href="/pageCinq">
-              Page Cinq</ion-button>
-          </div>
-          <div class="ion-text-center">
-            <p>Detail</p>
-            <ion-button expand="block" color="medium" href="/detail/123">
-              Detail</ion-button>
+            <br /><br /><br />
           </div>
   
       </ion-content>

@@ -58,15 +58,9 @@ const recettesArray = ref<Recette[]>([]);
         .then(response => response.json())
         .then(data => {
           //console.log(data);
-          //console.log(data['meals'][0]);
-          //console.log(data['meals'][0]);
-          //console.log(`data['meals'][0].length = ${data['meals'][0].value.length}`);
-          
-          
 
           data['meals'].forEach((meal: Recette) => {
               //console.log(meal);
-              //console.log(meal.strMeal);
               const ingredientsArray: { strMeasure: string, name: string }[] = [];
 
               for (let i = 1; i <= 20; ++i) {
@@ -83,35 +77,9 @@ const recettesArray = ref<Recette[]>([]);
                   strInstructions: meal.strInstructions,
                   idMeal: meal.idMeal
               };
-              //console.log(meal);
               recettesArray.value.push(recetteValue);
-              //console.log(recettesArray.value[0].strMeal);
           })
-          recettesArray.value.forEach((recette) => {
-              //console.log(`strMeal: ${recette.strMeal}`);
-          });
-          
-          /*
-          console.log(`data['meals'][0].idMeal = ${data['meals'][0].idMeal}`);
-          const ingredientsArray: { mesure: string, name: string }[] = [];
-          
-          for (let i = 1; i <= 20; ++i) {
-            if (data.meals[0]['strIngredient' + i] !== "" && data.meals[0]['strIngredient' + i] !== null) {
-              ingredientsArray.push({ mesure: data.meals[0]['strMeasure' + i], name: `${data.meals[0]['strIngredient' + i]}` })
-            }
-          }
-          const recetteValue: Recette = {
-            nomRecette: data.meals[0].strMeal,
-            img: data.meals[0].strMealThumb,
-            area: data.meals[0].strArea,
-            categorie: data.meals[0].strCategory,
-            ingredients: ingredientsArray,
-            instructions: data.meals[0].strInstructions,
-          };
-          console.log(recetteValue.ingredients);
-          */
           loading.dismiss();
-          //recette.value = recetteValue;
         });
   });
 
