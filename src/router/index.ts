@@ -1,14 +1,12 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
-import PageCinq from '../views/PageCinq.vue';
 import ChickenList from '../views/ChickenList.vue';
 import Detail from '../views/Detail.vue';
 import Liste from '../views/Liste.vue';
 import PageDetails from '../views/PageDetails.vue';
 import ComposantListe from '@/components/ComposantListe.vue';
 import DessertList from '@/views/DessertList.vue';
-import RecherchePage from '../views/RecherchePage.vue';
 import ElementRecherche from '@/components/ElementRecherche.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -20,11 +18,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     component: HomePage
-  },
-  {
-    path: '/pageCinq',
-    name: 'PageCinq',
-    component: PageCinq
   },
   {
     path: '/detail/:id',
@@ -56,11 +49,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/dessertList',
     name: 'Dessert',
     component: DessertList
-  },
-  {
-    path: '/recherchePage',
-    name: 'Recherche',
-    component: RecherchePage
   },
   {
     path: '/elementRecherche/:id',
