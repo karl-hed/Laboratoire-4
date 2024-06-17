@@ -7,7 +7,7 @@
   
       <ion-footer>
         <ion-toolbar color="secondary">
-          <ion-title>Pied de page</ion-title>
+          <!-- <ion-title>Pied de page</ion-title> -->
         </ion-toolbar>
       </ion-footer>
   

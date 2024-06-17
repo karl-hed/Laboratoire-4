@@ -30,14 +30,6 @@
           </ion-list>
           <p class="meal-text">Instructions</p>
           <p class="meal-instructions">{{ recette.strInstructions }}</p>
-          <p>Page d'accueil</p>
-          <ion-button expand="block" color="medium" href="/pageCinq">
-            Page Cinq</ion-button>
-        </div>
-        <div class="ion-text-center">
-          <p>Detail</p>
-          <ion-button expand="block" color="medium" href="/detail/123">
-            Detail</ion-button>
         </div>
 
     </ion-content>
