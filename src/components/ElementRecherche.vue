@@ -6,7 +6,7 @@
             <ion-buttons slot="start">
             <ion-menu-button color="primary"></ion-menu-button>
             </ion-buttons>
-            <ion-title>{{ $route.name ? $route.name : "no name" }}</ion-title>
+            <ion-title>{{ props.id }}</ion-title>
         </ion-toolbar>
         </ion-header>
     
