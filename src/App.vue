@@ -57,7 +57,6 @@ import { IonApp,
 import {
   heart, home, fishOutline, fishSharp
 } from 'ionicons/icons';
-import ComposantListe from '@/components/ComposantListe.vue';
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import ElementRecherche from './components/ElementRecherche.vue';
@@ -69,10 +68,9 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const rechercheFonction = (event: Event) => {
-  console.log(event.target);
-  console.log(event.target.value);
+  // console.log(event.target);
+  // console.log(event.target.value);
   router.push(`/elementRecherche/${event.target.value}`);
-  
 }
 
 const recherche = ref('');

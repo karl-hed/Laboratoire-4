@@ -1,13 +1,13 @@
 <template>
-    <!-- Conteneur principal pour un élément de livre -->
-    <ion-item class="conteneur-livre">
-      <!-- Élément de liste contenant les détails du livre et lié vers sa page de détails -->
-      <ion-item class="details-livre" :router-link="`/details/${props.recette.idMeal}`">
-        <!-- Avatar à gauche montrant la couverture du livre -->
+    <!-- Conteneur principal pour un élément de recette -->
+    <ion-item class="conteneur-recette">
+      <!-- Élément de liste contenant les détails d'une recette et lié vers sa page de détails -->
+      <ion-item class="details-recette" :router-link="`/details/${props.recette.idMeal}`">
+        <!-- Avatar à gauche montrant la couverture de la recette -->
         <ion-avatar slot="start">
           <ion-img :src="props.recette.strMealThumb"></ion-img>
         </ion-avatar>
-        <!-- Label pour le titre du livre -->
+        <!-- Label pour une recette -->
         <ion-label class="livre-titre">
           <h2>{{ props.recette.strMeal }}</h2>
         </ion-label>
@@ -15,15 +15,12 @@
     </ion-item>
   </template>
   
-  <!-- Script de configuration pour le composant LivreItem -->
+  <!-- Script de configuration -->
   <script setup lang="ts">
   // Importation des composants Ionic utilisés
   import { IonItem, IonAvatar, IonIcon, IonImg, IonLabel, IonButton } from '@ionic/vue'
-  // Importation du type Livre pour typer les propriétés du composant
+  // Importation du type Recette pour typer les propriétés du composant
   import { Recette } from '@/types'
-  
-  // Importation des icônes pour les boutons d'action
-  import { add, remove } from 'ionicons/icons';
   
   // Définition des propriétés attendues par le composant
   const props = defineProps<{ recette: Recette }>();
@@ -32,19 +29,19 @@
   <!-- Styles spécifiques au composant LivreItem -->
   <style scoped>
   /* Style pour le conteneur principal du livre */
-  .conteneur-livre {
+  .conteneur-recette {
     display: flex;
     flex: 1;
   }
   
   /* Effet au survol du conteneur principal */
-  .conteneur-livre:hover {
+  .conteneur-recette:hover {
     --ion-item-background: var(--ion-color-dark);
     --ion-item-color: var(--ion-color-light);
   }
   
   /* Style pour les détails du livre */
-  .details-livre {
+  .details-recette {
     display: flex;
     flex: 1;
   }
